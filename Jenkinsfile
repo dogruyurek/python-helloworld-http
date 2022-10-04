@@ -14,10 +14,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "docker run -it -p 6666:6666 -e PORT=6666 --name=my-ptyhon-http-server -d my-python-http:latest";
+                sh "docker run -it --network host -p 6666:6666 -e PORT=6666 --name=my-ptyhon-http-server -d my-python-http:latest";
+                sh "sleep 5"
                 sh "curl -v http://localhost:6666";
                 sh "docker stop my-ptyhon-http-server";
-                sh "docker remove my-ptyhon-http-server";
+                sh "docker rm my-ptyhon-http-server";
             }
         }
         stage('Push') {
