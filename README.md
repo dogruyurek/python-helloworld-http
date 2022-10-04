@@ -19,8 +19,7 @@ bash python-helloworld-http/prepare_jenkins.sh
 
 Configre jenkins pipeline to perform following tasks
 
-build : build docker image
-
+- **build** : build docker image
 - **test** : run docker image and verify that http server is up/running
 - **push** : tag image and push image to github
 
