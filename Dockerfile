@@ -6,4 +6,4 @@ WORKDIR /opt/app/
 
 COPY . /opt/app/
 
-ENTRYPOINT ["python", "./server.py"]
+ENTRYPOINT ["python", "./http-server.py"]
